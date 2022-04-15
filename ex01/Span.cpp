@@ -2,6 +2,10 @@
 #include <numeric>
 #include <iostream>
 
+/*
+
+   to print out a vector:
+
 template <typename T>
 std::ostream &operator<<(std::ostream &out, const std::vector<T> &v) {
 	for (unsigned i = 0; i < v.size(); i++) { 
@@ -11,6 +15,7 @@ std::ostream &operator<<(std::ostream &out, const std::vector<T> &v) {
 	}
 	return out;
 }
+*/
 
 Span::Span(unsigned int N) {
 	_numbers.reserve(N);
@@ -40,12 +45,10 @@ void Span::check_elements(const Span &s) {
 
 unsigned int Span::shortestSpan() {
 	check_elements(*this);
-	std::cout << _numbers << std::endl;
 	std::vector<int> tmp = _numbers;
 	sort(tmp.begin(), tmp.end());
-	std::cout << tmp << std::endl;
 	std::adjacent_difference(tmp.begin(), tmp.end(), tmp.begin());
-	return (*min_element(tmp.begin(), tmp.end()));
+	return (*min_element(tmp.begin() + 1, tmp.end()));
 }
 
 unsigned int Span::longestSpan() {
