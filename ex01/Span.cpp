@@ -28,6 +28,9 @@ void Span::check_elements(const Span &s) {
 
 unsigned int Span::shortestSpan() {
 	check_elements(*this);
+	vector<unsigned int> tmp = _numbers;
+	sort(tmp.begin(), tmp.end());
+    //difference vector? and then min?
 	//return (*min_element(_numbers.begin(), _numbers.end()));
 }
 
