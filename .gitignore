@@ -1,0 +1,12 @@
+*.o
+a.out
+my_*
+*.swp
+*.a
+*.~
+*.dSYM
+tags
+*.replace
+easyfind
+span
+mutantstack
