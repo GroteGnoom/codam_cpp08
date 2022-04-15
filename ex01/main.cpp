@@ -71,6 +71,7 @@ int main() {
 	vec.push_back(42);
 	vec.push_back(13);
 	vec.push_back(14);
+	vec.push_back(71);
 
 	Span span2 = Span(100);
 	span2.addNumbers<std::vector<int> >(vec.begin() + 1, vec.end() - 1);
