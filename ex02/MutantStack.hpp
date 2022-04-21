@@ -8,7 +8,7 @@ template <typename T>
 class MutantStack : public std::stack<T> {
 	public:
 		//typedef ra_iterator<T, size_t> iterator;
-		typedef typename std::stack<T>::container_type::iterator iterator;
+		typedef T* iterator;
 		MutantStack() {}
 		~MutantStack() {}
 		MutantStack(const MutantStack &m) {
@@ -19,10 +19,14 @@ class MutantStack : public std::stack<T> {
 			return *this;
 		}
 		iterator end() {
-			return (this->c.end());
+			return (&this->top() + 1);
 		}
 		iterator begin() {
-			return (this->c.begin());
+			iterator it = &this->top();
+			for (size_t i = 1; i < this->size(); i++) {
+				it--;
+			}
+			return it;
 		}
 };
 
